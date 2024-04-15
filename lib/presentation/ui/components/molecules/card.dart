@@ -14,31 +14,34 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 144,
-      height: 144,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CardIcon(iconData: item.iconData),
-              const SizedBox(
-                height: 12.0,
-              ),
-              Row(
-                children: [
-                  BodyMediumText(text: item.name),
-                  const ButtonSmallIcon(
-                    iconData: Icons.arrow_forward_ios,
-                  ),
-                ],
-              ),
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: SizedBox(
+        width: 144,
+        height: 144,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CardIcon(iconData: item.iconData),
+                const SizedBox(
+                  height: 12.0,
+                ),
+                Row(
+                  children: [
+                    BodyMediumText(text: item.name),
+                    const ButtonSmallIcon(
+                      iconData: Icons.arrow_forward_ios,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

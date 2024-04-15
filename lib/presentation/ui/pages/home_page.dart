@@ -22,12 +22,16 @@ class HomePage extends StatelessWidget {
               physics: const ClampingScrollPhysics(),
               children: [
                 const ImageAsset(image: 'banner_lobby.png'),
-                CardList(items: [
-                  BankServiceItem(
-                      name: 'Pago con PSE',
-                      iconData: Icons.attach_money,
-                      destination: '')
-                ])
+                Center(
+                  child: CardList(
+                    items: [
+                      BankServiceItem(
+                          name: 'Pago con PSE',
+                          iconData: Icons.attach_money,
+                          destination: '')
+                    ],
+                  ),
+                )
               ],
             ),
           ),

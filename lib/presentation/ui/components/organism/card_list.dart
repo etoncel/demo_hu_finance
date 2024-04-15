@@ -12,12 +12,19 @@ class CardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      mainAxisSpacing: 20,
-      physics: const ClampingScrollPhysics(),
-      shrinkWrap: true,
-      crossAxisCount: 2,
-      children: List.generate(20, (index) => CustomCard(item: items[0])),
+    final width = MediaQuery.of(context).size.width;
+    var wrap = Wrap(
+      alignment: WrapAlignment.center,
+      children: List.generate(6, (index) => CustomCard(item: items[0])),
     );
+    switch (width) {
+      case > 700 && < 1200:
+        return SizedBox(
+          width: 704,
+          child: wrap,
+        );
+      default:
+        return wrap;
+    }
   }
 }
