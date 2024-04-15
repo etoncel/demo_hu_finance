@@ -40,7 +40,7 @@ class SectionNavBarItem extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Divider(
             height: 1,
             color: colorScheme.secondary,

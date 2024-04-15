@@ -13,9 +13,11 @@ class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      mainAxisSpacing: 20,
+      physics: const ClampingScrollPhysics(),
+      shrinkWrap: true,
       crossAxisCount: 2,
-      children: List.generate(
-          items.length, (index) => CustomCard(item: items[index])),
+      children: List.generate(20, (index) => CustomCard(item: items[0])),
     );
   }
 }

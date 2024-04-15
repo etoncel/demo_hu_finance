@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hu_basica/presentation/ui/components/atoms/image_asset.dart';
 import 'package:hu_basica/presentation/ui/components/molecules/nav_bar.dart';
+import 'package:hu_basica/presentation/ui/components/organism/card_list.dart';
+import 'package:hu_basica/presentation/ui/item_models/bank_service_item.dart';
 import 'package:hu_basica/presentation/ui/components/molecules/section_nav_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,13 +10,29 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: const ClampingScrollPhysics(),
-      children: const [
-        SectionNavBar(),
-        NavBar(),
-        ImageAsset(image: 'banner_lobby.png'),
-      ],
+    return SafeArea(
+      child: Scaffold(
+          body: Column(
+        children: [
+          const SectionNavBar(),
+          const NavBar(),
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
+              children: [
+                const ImageAsset(image: 'banner_lobby.png'),
+                CardList(items: [
+                  BankServiceItem(
+                      name: 'Pago con PSE',
+                      iconData: Icons.attach_money,
+                      destination: '')
+                ])
+              ],
+            ),
+          ),
+        ],
+      )),
     );
   }
 }

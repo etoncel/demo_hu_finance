@@ -18,6 +18,7 @@ class ImageAsset extends StatelessWidget {
       image,
       width: width,
       height: height,
+      fit: BoxFit.fitWidth,
     );
   }
 }
