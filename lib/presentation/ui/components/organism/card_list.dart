@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hu_basica/ui/components/molecules/card.dart';
-import 'package:hu_basica/ui/item_models/bank_service_item.dart';
+import 'package:hu_basica/presentation/ui/components/molecules/card.dart';
+import 'package:hu_basica/presentation/ui/item_models/bank_service_item.dart';
 
 class CardList extends StatelessWidget {
   final List<BankServiceItem> items;
