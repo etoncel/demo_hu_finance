@@ -19,3 +19,19 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+interface class Bike {
+  void turnOnEngine() {
+    print("Hola");
+  }
+
+  void accelerate() {}
+}
+
+class Moto extends Bike {
+  @override
+  void turnOnEngine() {
+    // TODO: implement turnOnEngine
+    super.turnOnEngine();
+  }
+}

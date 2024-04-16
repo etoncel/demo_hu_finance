@@ -23,13 +23,16 @@ class HomePage extends StatelessWidget {
               children: [
                 const ImageAsset(image: 'banner_lobby.png'),
                 Center(
-                  child: CardList(
-                    items: [
-                      BankServiceItem(
-                          name: 'Pago con PSE',
-                          iconData: Icons.attach_money,
-                          destination: '')
-                    ],
+                  child: Container(
+                    transform: Matrix4.translationValues(0.0, -32.0, 0.0),
+                    child: CardList(
+                      items: [
+                        BankServiceItem(
+                            name: 'Pago con PSE',
+                            iconData: Icons.attach_money,
+                            destination: '')
+                      ],
+                    ),
                   ),
                 )
               ],
