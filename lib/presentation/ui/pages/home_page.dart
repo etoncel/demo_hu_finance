@@ -10,6 +10,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final ejeX = width > 551 ? -30.0 : 0.0;
     return SafeArea(
       child: Scaffold(
           body: Column(
@@ -22,14 +24,17 @@ class HomePage extends StatelessWidget {
               physics: const ClampingScrollPhysics(),
               children: [
                 const ImageAsset(image: 'banner_lobby.png'),
-                Center(
-                  child: CardList(
-                    items: [
-                      BankServiceItem(
-                          name: 'Pago con PSE',
-                          iconData: Icons.attach_money,
-                          destination: '')
-                    ],
+                Container(
+                  transform: Matrix4.translationValues(0.0, ejeX, 0.0),
+                  child: Center(
+                    child: CardList(
+                      items: [
+                        BankServiceItem(
+                            name: 'Pago con PSE',
+                            iconData: Icons.attach_money,
+                            destination: '')
+                      ],
+                    ),
                   ),
                 )
               ],

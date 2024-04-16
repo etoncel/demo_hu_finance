@@ -12,6 +12,7 @@ class NavBar extends StatelessWidget {
     return Container(
       color: colors.primary,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -21,7 +22,6 @@ class NavBar extends StatelessWidget {
               width: 40,
             ),
           ),
-          const Spacer(),
           MenuMobile(
             onAction: () {
               print('Open menú');
