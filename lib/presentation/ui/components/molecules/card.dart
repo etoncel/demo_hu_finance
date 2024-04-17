@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../../item_models/bank_service_item.dart';
 import 'package:hu_basica/presentation/ui/components/atoms/card_icon.dart';
 import 'package:hu_basica/presentation/ui/components/atoms/body_medium_text.dart';
@@ -34,7 +35,9 @@ class CustomCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    BodyMediumText(text: item.name),
+                    Expanded(
+                      child: FittedBox(child: BodyMediumText(text: item.name)),
+                    ),
                     const ButtonSmallIcon(
                       iconData: Icons.arrow_forward_ios,
                     ),

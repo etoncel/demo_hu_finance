@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hu_basica/domain/usecases/get_bank_services.dart';
+import 'package:hu_basica/domain/use_cases/get_bank_services.dart';
 import 'package:hu_basica/main.dart';
 import 'package:hu_basica/presentation/ui/item_models/bank_service_item.dart';
 import 'package:hu_basica/presentation/ui/pages/home/bloc/event.dart';

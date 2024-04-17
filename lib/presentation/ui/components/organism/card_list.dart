@@ -15,7 +15,8 @@ class CardList extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     var wrap = Wrap(
       alignment: WrapAlignment.center,
-      children: List.generate(6, (index) => CustomCard(item: items[0])),
+      children: List.generate(
+          items.length, (index) => CustomCard(item: items[index])),
     );
     switch (width) {
       case > 700 && < 1200:

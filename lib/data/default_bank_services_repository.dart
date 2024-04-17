@@ -9,7 +9,7 @@ import '../utils/failure.dart';
 class DefaultBankServicesRepository implements BanKServiceRepository {
   final ApiClient _apiClient;
 
-  DefaultBankServicesRepository() : _apiClient = getIt.get<ApiClientImpl>();
+  DefaultBankServicesRepository() : _apiClient = getIt.get<ApiClient>();
 
   @override
   Future<(List<BanKService>, Failure?)> getServices() async {
