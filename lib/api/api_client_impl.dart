@@ -1,5 +1,5 @@
-import 'package:hu_basica/data/dto/bank_service_dto.dart';
-import 'package:hu_basica/data/interface/api_client.dart';
+import 'package:demo_hu_finance/data/dto/bank_service_dto.dart';
+import 'package:demo_hu_finance/data/interface/api_client.dart';
 
 import '../utils/failure.dart';
 

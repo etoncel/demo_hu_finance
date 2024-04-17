@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../item_models/bank_service_item.dart';
-import 'package:hu_basica/presentation/ui/components/atoms/card_icon.dart';
-import 'package:hu_basica/presentation/ui/components/atoms/body_medium_text.dart';
-import 'package:hu_basica/presentation/ui/components/atoms/button_small_icon.dart';
+import 'package:demo_hu_finance/presentation/ui/components/atoms/card_icon.dart';
+import 'package:demo_hu_finance/presentation/ui/components/atoms/body_medium_text.dart';
+import 'package:demo_hu_finance/presentation/ui/components/atoms/button_small_icon.dart';
 
 class CustomCard extends StatelessWidget {
   final BankServiceItem item;

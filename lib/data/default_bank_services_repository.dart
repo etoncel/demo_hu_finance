@@ -1,8 +1,7 @@
-import 'package:hu_basica/api/api_client_impl.dart';
-import 'package:hu_basica/data/interface/api_client.dart';
-import 'package:hu_basica/domain/repositories/bank_service_repository.dart';
-import 'package:hu_basica/domain/models/bank_service.dart';
-import 'package:hu_basica/main.dart';
+import 'package:demo_hu_finance/data/interface/api_client.dart';
+import 'package:demo_hu_finance/domain/repositories/bank_service_repository.dart';
+import 'package:demo_hu_finance/domain/models/bank_service.dart';
+import 'package:demo_hu_finance/helper/get_it_injection.dart';
 
 import '../utils/failure.dart';
 
