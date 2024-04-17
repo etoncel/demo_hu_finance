@@ -36,7 +36,7 @@ class CustomCard extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                      child: FittedBox(child: BodyMediumText(text: item.name)),
+                      child: BodyMediumText(text: item.name),
                     ),
                     const ButtonSmallIcon(
                       iconData: Icons.arrow_forward_ios,
