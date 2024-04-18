@@ -1,28 +1,34 @@
+import 'package:equatable/equatable.dart';
+
 import '../../../item_models/bank_service_item.dart';
 
-abstract class HomePageState {
-  final List<BankServiceItem> items;
-
-  HomePageState({required this.items});
-}
+abstract class HomePageState extends Equatable {}
 
 class InitialHomePageState extends HomePageState {
-  InitialHomePageState({required super.items});
+  @override
+  List<Object?> get props => [];
 }
 
 class LoadingHomePageLoadingState extends HomePageState {
-  LoadingHomePageLoadingState() : super(items: []);
+  @override
+  List<Object?> get props => [];
 }
 
 class SuccessHomePageState extends HomePageState {
-  SuccessHomePageState({required super.items});
+  final List<BankServiceItem> items;
+  SuccessHomePageState({required this.items});
+
+  @override
+  List<Object?> get props => [items];
 }
 
 class ErrorHomePageState extends HomePageState {
   ErrorHomePageState({
-    required super.items,
     this.message = '',
   });
+
+  @override
+  List<Object?> get props => [];
 
   final String message;
 }
