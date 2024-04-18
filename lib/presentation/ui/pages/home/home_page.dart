@@ -14,62 +14,101 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = HomeBloc();
     return BlocProvider(
-      create: (context) => HomeBloc()..add(GetBankServicesHomePageEvent()),
-      child: BlocBuilder<HomeBloc, HomePageState>(
-        builder: (context, state) {
-          List<BankServiceItem> items = [];
-          if (state is SuccessHomePageState) {
-            items = state.items;
-          }
-          return SafeArea(
-            child: Scaffold(
-                body: Column(
-              children: [
-                const SectionNavBar(),
-                const NavBar(),
-                Expanded(
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: const ClampingScrollPhysics(),
-                    children: [
-                      const ImageAsset(image: 'banner_lobby.png'),
-                      Center(
-                        child: Container(
-                          transform: Matrix4.translationValues(0.0, -32.0, 0.0),
-                          child: CardList(
-                            items: items,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+      create: (context) => bloc..add(GetBankServicesHomePageEvent()),
+      child: BlocConsumer<HomeBloc, HomePageState>(builder: (context, state) {
+        List<BankServiceItem> items = [];
+        if (state is SuccessHomePageState) {
+          items = state.items;
+        }
+        return SafeArea(
+          child: Scaffold(
+              body: Column(
+            children: [
+              const SectionNavBar(),
+              const NavBar(),
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  physics: const ClampingScrollPhysics(),
+                  children: [
+                    const ImageAsset(image: 'banner_lobby.png'),
+                    _CardsWidget(
+                        isLoading: state is LoadingHomePageLoadingState,
+                        items: items)
+                  ],
                 ),
-              ],
-            )),
-          );
-        },
-      ),
+              ),
+            ],
+          )),
+        );
+      }, listener: (context, state) {
+        if (state is ErrorHomePageState) {
+          _openErrorDialog(context, state.message);
+        }
+      }),
     );
   }
 
-  // Future<void> _listener(BuildContext context, HomePageState state) async {
-  // if (state is LoadingHomePageLoadingState) {
-//   //   // BreedLoading.show(context);
-//   //   print("cargando...");
-//   // } else if (state is ErrorHomePageState) {
-//   //   print("error cargando la vista");
-//   //   // showToast(
-//   //   //   state.message,
-//   //   //   backgroundColor: ProTiendasUiColors.rybBlue,
-//   //   //   textStyle: const TextStyle(
-//   //   //     color: Colors.white,
-//   //   //   ),
-//   //   // );
-//   // } else if (state is SuccessHomePageState) {
+  void _openErrorDialog(
+    BuildContext context,
+    String errorMessage,
+  ) {
+    showDialog(
+        context: context,
+        builder: (builderContext) {
+          return AlertDialog(
+            title: const Text("Ha ocurrido un error",
+                style: TextStyle(fontSize: 20.0)),
+            content: Text(
+              errorMessage,
+              style: const TextStyle(fontSize: 12.0),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(builderContext).pop();
+                  },
+                  child: const Text("Cerrar"))
+            ],
+          );
+        });
+  }
+}
 
-//   // }
-// }
+class _CardsWidget extends StatelessWidget {
+  final bool isLoading;
+  final List<BankServiceItem> items;
+
+  const _CardsWidget({
+    super.key,
+    required this.isLoading,
+    required this.items,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return isLoading
+        ? const Center(
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: SizedBox(
+                width: 100,
+                height: 100,
+                child: CircularProgressIndicator(),
+              ),
+            ),
+          )
+        : Center(
+            child: Container(
+              transform: Matrix4.translationValues(0.0, -32.0, 0.0),
+              child: CardList(
+                items: items,
+              ),
+            ),
+          );
+  }
 }
 
 // Home Page

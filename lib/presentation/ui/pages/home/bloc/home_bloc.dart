@@ -14,6 +14,7 @@ class HomeBloc extends Bloc<HomePageEvent, HomePageState> {
         super(InitialHomePageState()) {
     on<GetBankServicesHomePageEvent>(
       (event, emit) async {
+        emit(LoadingHomePageLoadingState());
         final response = await getBankServicesUseCase.getServices();
         if (response.$1.isNotEmpty) {
           emit(
@@ -27,6 +28,9 @@ class HomeBloc extends Bloc<HomePageEvent, HomePageState> {
                     )
                     .toList()),
           );
+        } else {
+          emit(ErrorHomePageState(
+              message: response.$2?.message ?? "error at HomeBloc"));
         }
       },
     );

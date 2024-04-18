@@ -5,6 +5,7 @@ import 'package:demo_hu_finance/presentation/ui/item_models/bank_service_item.da
 import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/event.dart';
 import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/home_bloc.dart';
 import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/state.dart';
+import 'package:demo_hu_finance/utils/failure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -39,7 +40,8 @@ void main() {
     expect(sut.state, isA<HomePageState>());
   });
 
-  blocTest<HomeBloc, HomePageState>('emits list of BankServiceItems',
+  blocTest<HomeBloc, HomePageState>(
+      'success state where bloc emits list of BankServiceItems',
       build: () {
         final List<BanKService> services = [BanKService(name: 'pse')];
         when(useCase.getServices()).thenAnswer((_) async {
@@ -48,5 +50,19 @@ void main() {
         return sut;
       },
       act: (bloc) => bloc.add(GetBankServicesHomePageEvent()),
-      expect: () => [SuccessHomePageState(items: items)]);
+      expect: () =>
+          [LoadingHomePageLoadingState(), SuccessHomePageState(items: items)]);
+
+  blocTest<HomeBloc, HomePageState>('error state',
+      build: () {
+        when(useCase.getServices()).thenAnswer((_) async {
+          return Future.value((List<BanKService>.of([]), Failure("error")));
+        });
+        return sut;
+      },
+      act: (bloc) => bloc.add(GetBankServicesHomePageEvent()),
+      expect: () => [
+            LoadingHomePageLoadingState(),
+            ErrorHomePageState(message: "error")
+          ]);
 }
