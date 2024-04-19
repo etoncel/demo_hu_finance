@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/state.dart';
+import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/event.dart';
+import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/home_bloc.dart';
 import 'package:demo_hu_finance/presentation/ui/components/atoms/image_asset.dart';
 import 'package:demo_hu_finance/presentation/ui/components/molecules/nav_bar.dart';
 import 'package:demo_hu_finance/presentation/ui/components/organism/card_list.dart';
 import 'package:demo_hu_finance/presentation/ui/item_models/bank_service_item.dart';
 import 'package:demo_hu_finance/presentation/ui/components/molecules/section_nav_bar.dart';
-import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/event.dart';
-import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/home_bloc.dart';
-import 'package:demo_hu_finance/presentation/ui/pages/home/bloc/state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -82,13 +82,13 @@ class _CardsWidget extends StatelessWidget {
   final List<BankServiceItem> items;
 
   const _CardsWidget({
-    super.key,
     required this.isLoading,
     required this.items,
   });
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return isLoading
         ? const Center(
             child: Padding(
@@ -102,7 +102,8 @@ class _CardsWidget extends StatelessWidget {
           )
         : Center(
             child: Container(
-              transform: Matrix4.translationValues(0.0, -32.0, 0.0),
+              transform: Matrix4.translationValues(
+                  0.0, width > 552 ? -28.0 : 0.0, 0.0),
               child: CardList(
                 items: items,
               ),
