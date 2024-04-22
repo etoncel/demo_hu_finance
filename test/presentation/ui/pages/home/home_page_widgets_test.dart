@@ -16,7 +16,6 @@ import 'bloc/home_bloc_test.mocks.dart';
 
 @GenerateMocks([GetBankServicesUseCase])
 void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
   late GetBankServicesUseCase useCase;
 
   final List<BanKService> items = [
@@ -87,7 +86,6 @@ void main() {
 
     final cardItemFinder = find.text("Netflix");
 
-    // await tester.ensureVisible(cardItemFinder);
     expect(cardItemFinder, findsOneWidget);
   });
 }
