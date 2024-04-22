@@ -58,26 +58,12 @@ void main() {
     );
 
     await tester.pumpWidget(homePage);
-    // await tester.runAsync(() async {
-
-    // });
-    // Element element =
-    // tester.element(find.byKey(const Key("logo_itau_image_key")));
-    // Element element = tester.element(find.byType(DecoratedBox).first);
-    // DecoratedBox widget = element.widget as DecoratedBox;
-    // BoxDecoration decoration = widget.decoration as BoxDecoration;
-    // if (decoration.image?.image != null) {
-    //   await precacheImage(decoration.image!.image, element);
-    // }
 
     await tester.pumpAndSettle();
 
     int cardCounter = 0;
 
     for (final item in items) {
-      // final cardItemFinder = find.byType(CustomCard);
-      // final card = cardItemFinder.evaluate().first.widget as CustomCard;
-      // print("::::::CARD ${card.item}");
       final cardItemFinder = find.text(item.name);
 
       await tester.ensureVisible(cardItemFinder);
@@ -85,7 +71,7 @@ void main() {
       cardCounter++;
     }
 
-    expect(cardCounter, equals(2));
+    expect(cardCounter, equals(items.length));
   });
 
   testWidgets('Test custom card', (tester) async {
