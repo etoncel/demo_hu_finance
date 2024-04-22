@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = HomeBloc();
     return BlocProvider(
-      // create: (context) => bloc,
       create: (context) => bloc..add(GetBankServicesHomePageEvent()),
       child: BlocConsumer<HomeBloc, HomePageState>(builder: (context, state) {
         List<BankServiceItem> items = [];

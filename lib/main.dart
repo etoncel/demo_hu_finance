@@ -1,3 +1,4 @@
+import 'package:demo_hu_finance/presentation/ui/pages/service_detail/service_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_hu_finance/helper/get_it_injection.dart';
 import 'presentation/ui/pages/home/home_page.dart';
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: themeData,
-      home: const HomePage(),
+      initialRoute: "/home",
+      routes: {
+        "/home": (context) => const HomePage(),
+        "/service_detail": (context) => const ServiceDetailPage(),
+      },
     );
   }
 }

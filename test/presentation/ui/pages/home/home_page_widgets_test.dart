@@ -1,9 +1,7 @@
 import 'package:demo_hu_finance/domain/models/bank_service.dart';
 import 'package:demo_hu_finance/domain/use_cases/get_bank_services.dart';
-import 'package:demo_hu_finance/presentation/ui/components/atoms/image_asset.dart';
 import 'package:demo_hu_finance/presentation/ui/components/molecules/card.dart';
 import 'package:demo_hu_finance/presentation/ui/components/molecules/section_nav_bar.dart';
-import 'package:demo_hu_finance/presentation/ui/components/organism/card_list.dart';
 import 'package:demo_hu_finance/presentation/ui/item_models/bank_service_item.dart';
 import 'package:demo_hu_finance/presentation/ui/pages/home/home_page.dart';
 import 'package:flutter/material.dart';

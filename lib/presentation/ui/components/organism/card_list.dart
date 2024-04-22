@@ -16,7 +16,12 @@ class CardList extends StatelessWidget {
     var wrap = Wrap(
       alignment: WrapAlignment.center,
       children: List.generate(
-          items.length, (index) => CustomCard(item: items[index])),
+          items.length,
+          (index) => GestureDetector(
+              onTap: () => Navigator.of(context).pushNamed(
+                    "/service_detail",
+                  ),
+              child: CustomCard(item: items[index]))),
     );
     switch (width) {
       case > 700 && < 1200:
