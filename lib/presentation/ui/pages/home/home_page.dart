@@ -33,7 +33,19 @@ class HomePage extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const ClampingScrollPhysics(),
                   children: [
-                    const ImageAsset(image: 'banner_lobby.png'),
+                    // Container(
+                    //   key: const Key("banner_loby_image_key"),
+                    //   width: double.infinity,
+                    //   height: 200,
+                    //   decoration: const BoxDecoration(
+                    //     image: DecorationImage(
+                    //       image: AssetImage('assets/banner_lobby.png'),
+                    //     ),
+                    //   ),
+                    // ),
+                    const ImageAsset(
+                        key: Key("banner_loby_image_key"),
+                        image: 'assets/banner_lobby.png'),
                     _CardsWidget(
                         isLoading: state is LoadingHomePageLoadingState,
                         items: items)

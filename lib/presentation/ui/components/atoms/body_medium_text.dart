@@ -8,19 +8,20 @@ class BodyMediumText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: text,
-          ),
-          const WidgetSpan(
-            child: ButtonSmallIcon(
-              iconData: Icons.arrow_forward_ios,
-            ),
-          )
-        ],
-      ),
-    );
+    return Text(text);
+    // return RichText(
+    //   text: TextSpan(
+    //     children: [
+    //       TextSpan(
+    //         text: text,
+    //       ),
+    //       const WidgetSpan(
+    //         child: ButtonSmallIcon(
+    //           iconData: Icons.arrow_forward_ios,
+    //         ),
+    //       )
+    //     ],
+    //   ),
+    // );
   }
 }
