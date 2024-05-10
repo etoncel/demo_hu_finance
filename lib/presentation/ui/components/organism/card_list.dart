@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hu_basica/presentation/ui/components/molecules/card.dart';
-import 'package:hu_basica/presentation/ui/item_models/bank_service_item.dart';
+import 'package:demo_hu_finance/presentation/ui/components/molecules/card.dart';
+import 'package:demo_hu_finance/presentation/ui/item_models/bank_service_item.dart';
 
 class CardList extends StatelessWidget {
   final List<BankServiceItem> items;
@@ -15,7 +15,8 @@ class CardList extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     var wrap = Wrap(
       alignment: WrapAlignment.center,
-      children: List.generate(6, (index) => CustomCard(item: items[0])),
+      children: List.generate(
+          items.length, (index) => CustomCard(item: items[index])),
     );
     switch (width) {
       case > 700 && < 1200:

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hu_basica/presentation/ui/components/molecules/section_nav_bar_item.dart';
+import 'package:demo_hu_finance/presentation/ui/components/molecules/section_nav_bar_item.dart';
 
 class SectionNavBar extends StatelessWidget {
   const SectionNavBar({super.key});

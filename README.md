@@ -1,4 +1,4 @@
-# hu_basica
+# demo_hu_finance
 
 A new Flutter project.
 

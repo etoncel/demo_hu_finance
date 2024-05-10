@@ -1,4 +1,4 @@
-package com.example.hu_basica
+package com.example.demo_hu_finance
 
 import io.flutter.embedding.android.FlutterActivity
 

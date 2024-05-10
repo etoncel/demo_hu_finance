@@ -1,6 +1,6 @@
 {
-    "name": "hu_basica",
-    "short_name": "hu_basica",
+    "name": "demo_hu_finance",
+    "short_name": "demo_hu_finance",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

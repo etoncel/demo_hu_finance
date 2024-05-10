@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hu_basica/presentation/ui/components/atoms/body_small_text.dart';
-import 'package:hu_basica/presentation/ui/components/atoms/button_small_icon.dart';
+import 'package:demo_hu_finance/presentation/ui/components/atoms/body_small_text.dart';
+import 'package:demo_hu_finance/presentation/ui/components/atoms/button_small_icon.dart';
 
 class SectionNavBarItem extends StatelessWidget {
   final IconData iconData;

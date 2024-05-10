@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'presentation/ui/pages/home_page.dart';
-import 'package:hu_basica/config/theme/app_theme.dart';
+import 'package:demo_hu_finance/helper/get_it_injection.dart';
+import 'presentation/ui/pages/home/home_page.dart';
+import 'config/theme/app_theme.dart';
 
 void main() {
+  setUpGetIt();
   runApp(const MyApp());
 }
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: themeData,
-      home: const HomePage(),
+      home: const HomePage(),    
     );
   }
 }

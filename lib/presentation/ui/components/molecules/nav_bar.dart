@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hu_basica/presentation/ui/components/atoms/image_asset.dart';
-import 'package:hu_basica/presentation/ui/components/molecules/menu_mobile.dart';
+import 'package:demo_hu_finance/presentation/ui/components/atoms/image_asset.dart';
+import 'package:demo_hu_finance/presentation/ui/components/molecules/menu_mobile.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
